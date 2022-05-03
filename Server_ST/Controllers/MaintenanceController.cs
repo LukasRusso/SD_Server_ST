@@ -10,6 +10,7 @@ using Swashbuckle.Swagger.Annotations;
 
 namespace Server_ST.Controllers
 {
+    [RoutePrefix("Maintenance")]
     public class MaintenanceController : ApiController
     {
         private static List<MaintenanceModel> m_lsMaintenanceModels = new List<MaintenanceModel>();

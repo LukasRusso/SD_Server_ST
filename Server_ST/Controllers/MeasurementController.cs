@@ -10,6 +10,7 @@ using System.Web.Http;
 
 namespace Server_ST.Controllers
 {
+    [RoutePrefix("Measurement")]
     public class MeasurementController : ApiController
     {
         private static List<MeasurementsModel> m_lsMeasurementsModels = new List<MeasurementsModel>();
