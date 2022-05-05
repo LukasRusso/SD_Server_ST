@@ -6,9 +6,11 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Server.Controllers
 {
+    [EnableCors(origins:"*",headers:"*",methods:"*")]
     [RoutePrefix("History")]
     public class HistoryController : ApiController
     {
@@ -34,7 +36,7 @@ namespace Server.Controllers
             m_lsHistoryModels.Add(history);
             return Request.CreateResponse(HttpStatusCode.OK, "History saved successfuly");
         }
-
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         [SwaggerConsumes("application/json")]
         [SwaggerProduces("application/json")]
         [SwaggerResponse(HttpStatusCode.OK, "List of History Models", typeof(HistoryModel))]
