@@ -8,42 +8,42 @@ namespace Server.Models
 {
     public class MaintenanceModel
     {
-        private int id;
-        private string machine;
-        private string location;       
-        private string worker;
-        private DateTime dateTime;
+        private int _id;
+        private string _machine;
+        private string _location;       
+        private string _worker;
+        private DateTime _dateTime;
 
-        public int Id { get => id; set => id = value; }
-
-        [Required]
-        public string Machine { get => machine; set => machine = value; }
+        public int id { get => _id; set => _id = value; }
 
         [Required]
-        public string Location { get => location; set => location = value; }
+        public string machine { get => _machine; set => _machine = value; }
 
         [Required]
-        public string Worker { get => worker; set => worker = value; }
+        public string location { get => _location; set => _location = value; }
 
         [Required]
-        public DateTime DateTime { get => dateTime; set => dateTime = value; }
+        public string worker { get => _worker; set => _worker = value; }
+
+        [Required]
+        public DateTime dateTime { get => _dateTime; set => _dateTime = value; }
 
         public bool Validate(ref string message)
         {
             DateTime dateRange;
             DateTime.TryParse("2000-01-01T00:00:00.000", out dateRange);
 
-            if (String.IsNullOrEmpty(Machine))
+            if (String.IsNullOrEmpty(machine))
             {
                 message = "Machine can't be empty";
                 return false;
             }
-            else if (String.IsNullOrEmpty(Location))
+            else if (String.IsNullOrEmpty(location))
             {
                 message = "Location can't be empty";
                 return false;
             }
-            else if (String.IsNullOrEmpty(Worker))
+            else if (String.IsNullOrEmpty(worker))
             {
                 message = "Worker can't be empty";
                 return false;

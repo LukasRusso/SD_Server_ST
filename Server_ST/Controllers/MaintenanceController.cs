@@ -30,7 +30,7 @@ namespace Server_ST.Controllers
             }
 
             int nCount = m_lsMaintenanceModels.Count;
-            maintenance.Id = nCount != 0 ? m_lsMaintenanceModels[nCount - 1].Id + 1 : 1;
+            maintenance.id = nCount != 0 ? m_lsMaintenanceModels[nCount - 1].id + 1 : 1;
            
             m_lsMaintenanceModels.Add(maintenance);
             return Request.CreateResponse(HttpStatusCode.OK, "Maintenance saved successfuly");           
@@ -57,7 +57,7 @@ namespace Server_ST.Controllers
 
             m_lsMaintenanceModels.ForEach(m =>
             {
-                if (m.Id == id)
+                if (m.id == id)
                 {
                     maintenance = m;
                     return;
@@ -92,10 +92,10 @@ namespace Server_ST.Controllers
 
             for (int nIndex = 0; nIndex < m_lsMaintenanceModels.Count; nIndex++)
             {
-                if (m_lsMaintenanceModels[nIndex].Id == id)
+                if (m_lsMaintenanceModels[nIndex].id == id)
                 {
                     bUpdated = true;
-                    maintenance.Id = id;
+                    maintenance.id = id;
                     m_lsMaintenanceModels[nIndex] = maintenance;
                     break;
                 }
@@ -123,7 +123,7 @@ namespace Server_ST.Controllers
 
             m_lsMaintenanceModels.ForEach(m =>
             {
-                if (m.Id == id)
+                if (m.id == id)
                 {
                     maintenance = m;
                     return;

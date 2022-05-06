@@ -31,7 +31,7 @@ namespace Server.Controllers
             }
 
             int nCount = m_lsHistoryModels.Count;
-            history.Id = nCount != 0 ? m_lsHistoryModels[nCount - 1].Id + 1 : 1;
+            history.id = nCount != 0 ? m_lsHistoryModels[nCount - 1].id + 1 : 1;
 
             m_lsHistoryModels.Add(history);
             return Request.CreateResponse(HttpStatusCode.OK, "History saved successfuly");
@@ -58,7 +58,7 @@ namespace Server.Controllers
 
             m_lsHistoryModels.ForEach(h =>
             {
-                if(h.Id == id)
+                if(h.id == id)
                 {
                     history = h;
                     return;
@@ -93,10 +93,10 @@ namespace Server.Controllers
 
             for(int nIndex = 0; nIndex < m_lsHistoryModels.Count; nIndex++)
             {
-                if (m_lsHistoryModels[nIndex].Id == id)
+                if (m_lsHistoryModels[nIndex].id == id)
                 {
                     bUpdated = true;
-                    history.Id = id;
+                    history.id = id;
                     m_lsHistoryModels[nIndex] = history;
                     break;
                 }
@@ -124,7 +124,7 @@ namespace Server.Controllers
 
             m_lsHistoryModels.ForEach(h =>
             {
-                if (h.Id == id)
+                if (h.id == id)
                 {
                     history = h;
                     return;

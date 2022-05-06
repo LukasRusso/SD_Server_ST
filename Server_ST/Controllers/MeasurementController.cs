@@ -29,7 +29,7 @@ namespace Server_ST.Controllers
             }
 
             int nCount = m_lsMeasurementsModels.Count;
-            measurements.Id = nCount != 0 ? m_lsMeasurementsModels[nCount - 1].Id + 1 : 1;
+            measurements.id = nCount != 0 ? m_lsMeasurementsModels[nCount - 1].id + 1 : 1;
 
             m_lsMeasurementsModels.Add(measurements);
             return Request.CreateResponse(HttpStatusCode.OK, "Measurement saved successfuly");
@@ -56,7 +56,7 @@ namespace Server_ST.Controllers
 
             m_lsMeasurementsModels.ForEach(m =>
             {
-                if (m.Id == id)
+                if (m.id == id)
                 {
                     maintenance = m;
                     return;
@@ -91,10 +91,10 @@ namespace Server_ST.Controllers
 
             for (int nIndex = 0; nIndex < m_lsMeasurementsModels.Count; nIndex++)
             {
-                if (m_lsMeasurementsModels[nIndex].Id == id)
+                if (m_lsMeasurementsModels[nIndex].id == id)
                 {
                     bUpdated = true;
-                    measurements.Id = id;
+                    measurements.id = id;
                     m_lsMeasurementsModels[nIndex] = measurements;
                     break;
                 }
@@ -122,7 +122,7 @@ namespace Server_ST.Controllers
 
             m_lsMeasurementsModels.ForEach(m =>
             {
-                if (m.Id == id)
+                if (m.id == id)
                 {
                     measurement = m;
                     return;
